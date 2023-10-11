@@ -1,0 +1,21 @@
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://bfxrnhbgti483"]
+
+[ext_resource type="Shader" path="res://shaders/sky.gdshader" id="1_unxda"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j075y"]
+shader = ExtResource("1_unxda")
+shader_parameter/color_top = Color(0.91, 0.14, 1, 1)
+shader_parameter/color_horizon = Color(1, 0.4, 0.42, 1)
+shader_parameter/color_bottom = Color(1, 0.74, 0.39, 1)
+shader_parameter/exponent_factor_top = 1.0
+shader_parameter/exponent_factor_bottom = 1.0
+shader_parameter/intensity_amp = 1.0
+
+[sub_resource type="Sky" id="Sky_hj76i"]
+sky_material = SubResource("ShaderMaterial_j075y")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_hj76i")
+tonemap_mode = 2
+glow_enabled = true

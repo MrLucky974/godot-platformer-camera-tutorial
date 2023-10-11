@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://xwnueoqw5g2y"]
+
+[ext_resource type="Environment" uid="uid://bfxrnhbgti483" path="res://environment.tres" id="1_avtgb"]
+[ext_resource type="PackedScene" uid="uid://crepkdclmay5g" path="res://scenes/player.tscn" id="1_iltbn"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_hw7cv"]
+size = Vector2(75, 75)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iklmj"]
+albedo_color = Color(0.262745, 0.509804, 0.568627, 1)
+
+[node name="TestScene" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+light_color = Color(1, 0.901961, 0.584314, 1)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_avtgb")
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Environment"]
+use_collision = true
+mesh = SubResource("PlaneMesh_hw7cv")
+material = SubResource("StandardMaterial3D_iklmj")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.28121, 1.5, -6)
+size = Vector3(2, 3, 2)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.7188, 1.5, -15)
+size = Vector3(2, 3, 2)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.2812, 1.5, -24)
+size = Vector3(2, 3, 2)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.2812, 1.5, 13.0854)
+size = Vector3(2, 3, 2)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.28121, 1.5, 22.0854)
+size = Vector3(2, 3, 2)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.7188, 1.5, 9.08536)
+size = Vector3(2, 3, 2)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.7188, 1.5, 25.0854)
+size = Vector3(2, 3, 2)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.7188, 1.5, -24.9146)
+size = Vector3(2, 3, 2)
+
+[node name="Player" parent="." instance=ExtResource("1_iltbn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

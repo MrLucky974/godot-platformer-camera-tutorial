@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://sxfruxvreqv7"]
+
+[ext_resource type="Script" path="res://scripts/controllable_camera.gd" id="1_vtmob"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7st78"]
+radius = 0.2
+
+[node name="ControllableCamera" type="Node3D"]
+script = ExtResource("1_vtmob")
+
+[node name="GimbalH" type="Node3D" parent="."]
+
+[node name="GimbalV" type="Node3D" parent="GimbalH"]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="GimbalH/GimbalV"]
+shape = SubResource("SphereShape3D_7st78")
+spring_length = 6.0
+margin = 0.5
+
+[node name="Camera3D" type="Camera3D" parent="GimbalH/GimbalV/SpringArm3D"]
